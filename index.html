@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#244f46">
+<title>차곡 · 나의 가계부</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="./"><span class="brand-icon">▤</span> 차곡<span class="brand-note">나의 작은 가계부</span></a><span class="local-badge">이 기기에 안전하게 차곡</span></header>
+<main>
+<section class="intro"><div><p class="eyebrow">MY DAILY MONEY</p><h1>오늘도, 차곡차곡.</h1><p class="subtitle">작은 기록이 모여 만드는 든든한 일상</p></div><label class="month-control"><span>조회 월</span><input type="month" id="month" aria-label="조회 월"></label></section>
+<section class="summary" aria-label="월별 합계"><article class="balance"><span>이번 달 남은 금액</span><strong id="balance">0<span>원</span></strong><p>수입에서 지출을 뺀 금액이에요.</p><span class="decoration" aria-hidden="true">↗</span></article><article><span class="summary-label"><i class="income-icon">↙</i> 총 수입</span><strong id="income">0<span>원</span></strong><p>이번 달 들어온 금액</p></article><article><span class="summary-label"><i class="expense-icon">↗</i> 총 지출</span><strong id="expense">0<span>원</span></strong><p>이번 달 사용한 금액</p></article></section>
+<div class="workspace"><section class="card entry"><div class="section-title"><h2>새로운 기록</h2><span>✎</span></div><p class="muted">오늘의 수입과 지출을 남겨보세요.</p>
+<form id="entry-form"><fieldset class="type-switch"><legend class="sr-only">거래 유형</legend><label><input type="radio" name="type" value="expense" checked><span>− 지출</span></label><label><input type="radio" name="type" value="income"><span>+ 수입</span></label></fieldset>
+<label class="field">금액<div class="amount-input"><input id="amount" type="number" min="1" max="999999999999" step="1" inputmode="numeric" placeholder="0" required><span>원</span></div></label>
+<div class="form-row"><label class="field">날짜<input id="date" type="date" required></label><label class="field">카테고리<select id="category"></select></label></div>
+<label class="field">메모 <span class="optional">선택</span><input id="memo" type="text" maxlength="80" placeholder="어디에 사용하셨나요?"></label>
+<button class="submit" type="submit">+ 기록 추가하기</button><p id="form-message" role="status"></p>
+</form><div class="tip"><span>✧</span><p>하루 한 번의 기록,<br>나를 위한 좋은 습관이 돼요.</p></div></section>
+<section class="card records"><div class="section-title"><h2>이번 달 내역 <span id="count" class="count">0</span></h2><span class="sort-note">최신순</span></div><div class="filters" aria-label="내역 필터"><button class="active" data-filter="all" aria-pressed="true">전체</button><button data-filter="income" aria-pressed="false">수입</button><button data-filter="expense" aria-pressed="false">지출</button></div><div id="transactions"></div></section></div>
+<footer>차곡 <span>·</span> 기록은 이 브라우저에만 저장됩니다.</footer>
+</main><dialog id="delete-dialog"><h2>기록을 삭제할까요?</h2><p>삭제한 기록은 되돌릴 수 없어요.</p><div class="dialog-actions"><button id="cancel-delete">취소</button><button id="confirm-delete">삭제하기</button></div></dialog>
+</body></html>
